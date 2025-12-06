@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      ig8214
+HostName                       adroit-vis.princeton.edu
+ProcessIdentifier              620762
+ProcessCreationTime_UTC        1765060580
+ProcessCreationTime_Readable   Sat Dec  6 17:36:20 2025 EST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/ig8214/ece462/sec_reg_lib/Test/schematic/sch.oa.cdslck
+TimeEditLocked                 Sat Dec  6 17:37:20 2025 EST
