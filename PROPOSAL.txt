@@ -1,0 +1,97 @@
+================================================================================
+                    SECURE MODE REGISTER CELL PROJECT PROPOSAL
+          Hardware Enforcement of Privileged Context Isolation
+================================================================================
+
+GROUP MEMBERS
+-------------
+Isaac Gyamfi and Shivam Kak
+
+HYPOTHESIS
+----------
+
+Research Question:
+    Can a transistor-level register cell effectively enforce read access 
+    control based on privilege levels, preventing unauthorized access to 
+    sensitive state even when an adversary controls the read signal?
+
+We hypothesize that a custom CMOS register cell with dual read ports—one 
+unrestricted (secure) and one gated by a privilege signal (public)—can 
+successfully implement hardware-enforced context isolation. Specifically, when 
+the secure mode signal is deasserted, the public read port will return a 
+masked value (logic 0) regardless of the stored data, while the secure port 
+maintains access to the true value.
+
+
+WHY THIS QUESTION IS INTERESTING
+---------------------------------
+
+This research topic is directly inspired by the 2025 ZION paper 
+(https://ieeexplore.ieee.org/document/11133121), which outlines a confidential 
+VM for commodity RISC-V hardware. This project aims to build upon the findings 
+of the original ZION paper.
+
+The ZION paper addresses a critical vulnerability in virtualized systems: 
+hypervisors (which schedule VMs) typically have full access to VM register 
+state, creating a security risk if the hypervisor is compromised. ZION's 
+architectural solution keeps the authoritative vCPU state isolated from 
+untrusted software. Our project explores whether this protection model can be 
+implemented at the most fundamental hardware level—the storage cell itself.
+
+
+APPROACH
+--------
+
+Circuit Design:
+    We will design a 1-bit secure register cell in Cadence Virtuoso:
+    
+    * Storage core: Cross-coupled inverter pair for static data retention
+    
+    * Write path: Transmission gate controlled by write enable (WE) signal
+    
+    * Secure read port (QSEC): Direct buffered access to stored value—always 
+      reflects true data
+    
+    * Public read port (QPUB): Conditional access via transmission gate enabled 
+      by secure mode (SEC) signal, with NMOS clamp to ground when SEC=0
+
+Experiments:
+    We will run transient simulations testing multiple scenarios:
+    
+    (1) Write '1' with SEC=1 → verify both ports read correctly
+    
+    (2) Assert SEC=0 → confirm QSEC maintains '1' while QPUB outputs '0'
+    
+    (3) Write '0' and repeat privilege transitions
+    
+    (4) Corner case analysis with voltage/temperature variations to verify 
+        masking reliability
+
+Setup:
+    Single-bit cell schematic in Virtuoso using the course-provided PDK. 
+    Testbench will toggle D (data), WE (write enable), and SEC (secure mode) 
+    inputs while monitoring internal node X, QSEC, and QPUB outputs. Transistor 
+    sizing will follow standard digital cell guidelines (PMOS 2× NMOS width in 
+    inverters, matched transmission gate widths).
+
+Analysis:
+    We will generate waveform plots showing the key security property: when SEC 
+    transitions from 1→0, QPUB immediately masks the data while QSEC remains 
+    unchanged.
+    
+    Success metrics include:
+    
+    (a) QPUB correctly outputs 0 when SEC=0 regardless of stored value
+    
+    (b) Write operations succeed in both modes
+    
+    (c) No data leakage through capacitive coupling or charge sharing
+    
+    We will extend the design to a 4-bit register bank to demonstrate 
+    scalability and calculate area/power overhead compared to a standard 
+    register cell.
+
+
+================================================================================
+                              END OF PROPOSAL
+================================================================================
