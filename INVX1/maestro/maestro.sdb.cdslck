@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      ig8214
+HostName                       adroit-vis.princeton.edu
+ProcessIdentifier              3639976
+ProcessCreationTime_UTC        1763350357
+ProcessCreationTime_Readable   Sun Nov 16 22:32:37 2025 EST
+AppIdentifier                  /usr/licensed/cadence-2023/IC231R10/tools/dfII/bin/64bit/virtuoso
+OSType                         lnx86
+ReasonForPlacingEditLock       
+FilePathUsedToEditLock         /home/ig8214/ece462/ece462/INVX1/maestro/maestro.sdb
+TimeEditLocked                 Sun Nov 16 22:33:12 2025 EST
