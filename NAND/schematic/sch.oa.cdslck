@@ -6,11 +6,11 @@
 LockStakeVersion               1.1
 LoginName                      sk3686
 HostName                       adroit-vis.princeton.edu
-ProcessIdentifier              4137416
-ProcessCreationTime_UTC        1765518424
-ProcessCreationTime_Readable   Fri Dec 12 00:47:04 2025 EST
+ProcessIdentifier              2270054
+ProcessCreationTime_UTC        1765229051
+ProcessCreationTime_Readable   Mon Dec  8 16:24:11 2025 EST
 AppIdentifier                  OA File System Design Manager
 OSType                         unix
 ReasonForPlacingEditLock       OpenAccess edit lock
-FilePathUsedToEditLock         /home/sk3686/ece462/sec_reg_lib/Test/schematic/sch.oa.cdslck
-TimeEditLocked                 Fri Dec 12 00:47:11 2025 EST
+FilePathUsedToEditLock         /home/sk3686/ece462/ece462/NAND/schematic/sch.oa.cdslck.dirlck
+TimeEditLocked                 Mon Dec  8 16:25:16 2025 EST
